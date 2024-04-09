@@ -5,7 +5,7 @@ public class ReverseArray {
     public static int [] revArray(int[] arr){
         int start =0;
         int end =arr.length-1;
-        int temp =0;
+        int temp ;
 
         while(start < end){
             temp = arr[start];
