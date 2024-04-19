@@ -47,20 +47,37 @@ public class SinglyLinkedList {
 
         System.out.println();
     }
-// TODO: implement delete method
-//    public void delete(int data){
-//
-//        Node current = head;
-//        Node prev = null;
-//        //if node to be deleted is head node
-//        if(current != null && current.data == data) {
-//            current.next = head;
-//        }
-//
-//        //search for node and delete
-//        while(current != null && current.data ){
-//
-//        }
-//        // node not found
-//    }
+
+    public void delete(int data) {
+        // Case 1: If the list is empty
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        // Case 2: If the node to be deleted is the head node
+        if (head.data == data) {
+            head = head.next;
+            System.out.println(data + " found and deleted");
+            return;
+        }
+
+        // Case 3: Search for the node to be deleted
+        Node current = head;
+        Node prev = null;
+        while (current != null && current.data != data) {
+            prev = current;
+            current = current.next;
+        }
+
+        // Case 4: If the node was not found
+        if (current == null) {
+            System.out.println(data + " not found");
+            return;
+        }
+
+        // Case 5: Node found in the middle or end of the list
+        prev.next = current.next;
+        System.out.println(data + " found and deleted");
+    }
 }

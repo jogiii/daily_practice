@@ -14,5 +14,8 @@ public class Main {
 
         myList.printList();
 
+        myList.delete(5);
+
+        myList.printList();
     }
 }
