@@ -17,5 +17,7 @@ public class Main {
         myList.delete(5);
 
         myList.printList();
+        myList.length();
+
     }
 }

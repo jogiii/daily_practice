@@ -80,4 +80,17 @@ public class SinglyLinkedList {
         prev.next = current.next;
         System.out.println(data + " found and deleted");
     }
+
+    public int length(){
+        ;
+        Node current = head;
+        int count =0;
+
+        while(current != null){
+            count++;
+            current = current.next;
+        }
+        System.out.println("length is "+ count);
+        return count;
+    }
 }
