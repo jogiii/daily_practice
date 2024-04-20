@@ -22,5 +22,7 @@ public class Main {
         myList.reverse();
         myList.printList();
 
+        myList.findNodeFromEnd(2);
+
     }
 }

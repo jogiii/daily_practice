@@ -114,4 +114,32 @@ public class SinglyLinkedList {
 
         }
 
+
+        public Node findNodeFromEnd(int n){
+
+        Node mainPtr = head;
+        Node refPtr = head;
+        int count  =0;
+        while(count < n){
+            if(refPtr == null){
+                System.out.println("list is empty");
+                return null;
+            }
+            refPtr = refPtr.next;
+            count++;
+        }
+
+        // now iterate both of them simultaneously
+
+
+            while(refPtr.next !=null){
+                mainPtr = mainPtr.next;
+                refPtr = refPtr.next;
+            }
+            System.out.println(mainPtr.data + " is the element");
+            return mainPtr;
+
+
+        }
+
 }
