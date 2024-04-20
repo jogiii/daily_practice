@@ -9,20 +9,25 @@ public class Main {
         SinglyLinkedList myList = new SinglyLinkedList();
 
         myList.insert(1);
+        myList.insert(1);
+        myList.insert(2);
         myList.insert(2);
         myList.insert(3);
+        myList.insert(3);
 
-        myList.printList();
+      //  myList.printList();
 
-        myList.delete(5);
+       // myList.delete(5);
 
         myList.printList();
         myList.length();
 
-        myList.reverse();
+        //myList.reverse();
         myList.printList();
 
-        myList.findNodeFromEnd(2);
+        //myList.findNodeFromEnd(1);
+        myList.removeDuplicate();
+        myList.printList();
 
     }
 }

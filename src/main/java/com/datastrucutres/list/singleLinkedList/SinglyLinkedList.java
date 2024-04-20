@@ -132,13 +132,28 @@ public class SinglyLinkedList {
         // now iterate both of them simultaneously
 
 
-            while(refPtr.next !=null){
+            while(refPtr !=null){
                 mainPtr = mainPtr.next;
                 refPtr = refPtr.next;
             }
             System.out.println(mainPtr.data + " is the element");
             return mainPtr;
 
+
+        }
+
+
+        public void removeDuplicate(){
+            Node current = head;
+
+            while(current != null && current.next != null){
+                if(current.data == current.next.data){
+                    System.out.println("duplicate found");
+                    current.next = current.next.next;
+                }else {
+                    current = current.next;
+                }
+            }
 
         }
 
