@@ -157,4 +157,29 @@ public class SinglyLinkedList {
 
         }
 
+        public void insertNodeSortedList(int data){
+
+            Node newNode = new Node(data);
+
+            // Case 1: If the list is empty or the new node should be inserted at the beginning
+            if (head == null || head.data >= data) {
+                newNode.next = head;
+                head = newNode;
+                System.out.println(data + " inserted at the beginning");
+                return;
+            }
+
+            // Traverse the list to find the correct position for insertion
+            Node current = head;
+            while (current.next != null && current.next.data < data) {
+                current = current.next;
+            }
+
+            // Insert the new node
+            newNode.next = current.next;
+            current.next = newNode;
+
+
+        }
+
 }

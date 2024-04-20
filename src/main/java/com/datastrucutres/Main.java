@@ -29,5 +29,8 @@ public class Main {
         myList.removeDuplicate();
         myList.printList();
 
+        myList.insertNodeSortedList(2);
+        myList.printList();
+
     }
 }
