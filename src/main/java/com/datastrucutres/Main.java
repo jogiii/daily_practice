@@ -19,5 +19,8 @@ public class Main {
         myList.printList();
         myList.length();
 
+        myList.reverse();
+        myList.printList();
+
     }
 }

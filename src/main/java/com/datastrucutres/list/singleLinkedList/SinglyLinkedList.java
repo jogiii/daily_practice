@@ -93,4 +93,25 @@ public class SinglyLinkedList {
         System.out.println("length is "+ count);
         return count;
     }
+
+    public void reverse(){
+                Node current = head;
+                Node prev = null;
+                Node next = null;
+
+
+                while(current != null) {
+                    next = current.next;
+                    current.next = prev;
+
+                    prev = current;
+                    current = next;
+                }
+
+                head = prev;
+
+        System.out.println("list reversed");
+
+        }
+
 }
