@@ -189,19 +189,85 @@ public class SinglyLinkedList {
         }
 
         Node slow = head;
-        Node fast = head.next;
+        Node fast = head;
 
         while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
             if (fast == slow) {
                 return true;
             }
-
-            slow = slow.next;
-            fast = fast.next.next;
         }
 
         return false;
     }
+
+    public  Node findTheStartOfLoop(Node head){
+
+
+        Node slow = head;
+        Node fast = head;
+
+
+        while(fast != null && fast.next !=null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                break;
+            }
+        }
+
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+
+        slow = head;
+        Node prev = null;
+
+        while (slow !=fast){
+
+            slow=slow.next;
+            fast=fast.next;
+        }
+        return slow;
+    }
+
+    public void removeLoop(Node head) {
+        Node slow = head;
+        Node fast = head;
+        Node prev = null;
+
+        // Detect the loop
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                break;
+            }
+        }
+
+        // If there's no loop
+        if (fast == null || fast.next == null) {
+            return;
+        }
+
+        // Reset slow to head and move both pointers until they meet
+        slow = head;
+
+        while (slow != fast) {
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        // Set the next pointer of the node causing the loop to null
+        prev.next = null;
+    }
+
 
     public static void main(String[] args) {
         Node head = new Node(1);
@@ -212,7 +278,18 @@ public class SinglyLinkedList {
 
         SinglyLinkedList l = new SinglyLinkedList();
         boolean hasCycle = l.hasCycle(head);
-        System.out.println("Does the linked list have a cycle? " + hasCycle);
+        System.out.println("Does the linked list have a cycle? " + l.findTheStartOfLoop(head).data);
+        l.removeLoop(head);
+
+        System.out.print("LinkedList: ");
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+
+        System.out.println();
+
     }
 
 }
