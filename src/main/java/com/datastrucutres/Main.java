@@ -15,7 +15,9 @@ public class Main {
         myList.insert(3);
         myList.insert(3);
 
-      //  myList.printList();
+
+
+        //  myList.printList();
 
        // myList.delete(5);
 

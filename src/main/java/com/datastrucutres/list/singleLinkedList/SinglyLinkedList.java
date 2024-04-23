@@ -182,4 +182,37 @@ public class SinglyLinkedList {
 
         }
 
+
+    public Boolean hasCycle(Node head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        Node slow = head;
+        Node fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            if (fast == slow) {
+                return true;
+            }
+
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = new Node(4);
+        head.next.next.next.next = head.next;
+
+        SinglyLinkedList l = new SinglyLinkedList();
+        boolean hasCycle = l.hasCycle(head);
+        System.out.println("Does the linked list have a cycle? " + hasCycle);
+    }
+
 }
