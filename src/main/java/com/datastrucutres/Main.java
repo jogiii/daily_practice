@@ -14,6 +14,7 @@ public class Main {
         myList.insert(2);
         myList.insert(3);
         myList.insert(3);
+        myList.insert(9);
 
 
 
