@@ -14,8 +14,6 @@ public class BinaryTree {
         root = null;
     }
 
-    //test commit
-
     public void preOrder(Node root){ /* 1) first visit the node 2) left sub tree 3) right sub tree*/
         if(root == null){
             //System.out.println("tree is empty");
