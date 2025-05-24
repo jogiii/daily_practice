@@ -56,4 +56,11 @@ public class MaxHeapInsert {
         heap[indexOne] = heap[indexTwo];
         heap[indexTwo] = temp;
     }
+
+    public int peek(){
+        if(size == 0){
+            throw new IllegalStateException("Heap is empty");
+        }
+        return heap[0];
+    }
 }
