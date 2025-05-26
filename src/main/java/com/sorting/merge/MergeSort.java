@@ -1,4 +1,18 @@
+package com.sorting.merge;
+
 public class MergeSort {
+
+    public static void main(String[] args) {
+        int[] arr = {6, 3, 8, 5, 2, 7, 4, 1};
+
+        System.out.println("Original array:");
+        printArray(arr);
+
+        mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println("Sorted array:");
+        printArray(arr);
+    }
 
     public static void mergeSort(int[] arr, int low, int high) {
         if (low < high) {
@@ -49,15 +63,5 @@ public class MergeSort {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        int[] arr = {6, 3, 8, 5, 2, 7, 4, 1};
-
-        System.out.println("Original array:");
-        printArray(arr);
-
-        mergeSort(arr, 0, arr.length - 1);
-
-        System.out.println("Sorted array:");
-        printArray(arr);
-    }
+   
 }
