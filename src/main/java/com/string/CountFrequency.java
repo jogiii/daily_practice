@@ -22,7 +22,14 @@ public class CountFrequency {
        
         Map<Character, Integer> countMap = new HashMap<>();
         for(char ch: str.toCharArray()){
-            countMap.put(ch, countMap.getOrDefault(ch, 0)+1); // getOrDefault return if nothing is there , then 0 +1 else value +1
+
+
+            if (countMap.containsKey(ch)) {
+                countMap.put(ch, countMap.get(ch) + 1);
+            } else {
+                countMap.put(ch, 1);
+            }
+            //countMap.put(ch, countMap.getOrDefault(ch, 0)+1); // getOrDefault return if nothing is there , then 0 +1 else value +1
         }
 
         return countMap;
