@@ -38,23 +38,59 @@ public class MaxHeap {
         }
     }
 
-    public boolean hasParent(int index){
+    private boolean hasParent(int index){
         return getParentIndex(index) >= 0;
     }
 
-    public int getParentIndex(int index){
+    private int getParentIndex(int index){
         return (index-1)/2;
     }
 
-    public int parent(int index){
+    private int parent(int index){
         return heap[getParentIndex(index)];
     }
 
-    public void swap(int a, int b){
+    private void swap(int a, int b){
         int temp = heap[a];
         heap[a] = heap[b];
         heap[b] = temp;
     }
+
+    public int delete(){
+        if (size == 0) {
+            throw new IllegalStateException("Heap is empty");
+        }
+
+        int maxValue = heap[0];
+        heap[0] = heap[size-1];
+        size--;
+        heapifyDown();
+
+        return maxValue;
+
+
+    }
+
+
+    public void heapifyDown(){
+        int index = 0;
+        while(hasLeftChild(index)){
+            int largerChildIndex = getLeftChiltIndex(index);
+            if(hasRightChild(index) && getRightChildIndex(index) >largerChildIndex){
+                largerChildIndex = getRightChildIndex(index);
+            }
+            if(heap[index] > largerChildIndex){
+                break;
+            }else{
+                swap(index, largerChildIndex);
+            }
+            index = largerChildIndex;
+        }
+    }
+
+
+
+
 
 
 
