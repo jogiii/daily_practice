@@ -24,7 +24,17 @@ public class BinarySearch {
         return -1;
 
 
+//create a binary search method that takes an array and a target value as inp
+    }
 
+public void binarySearch(int arr[], int target) {
+        int result = Search(arr, target);
+        if(result == -1){
+            System.out.println("Element not found");
+        }
+        else{
+            System.out.println("Element found at index: " + result);
+        }
     }
 
 

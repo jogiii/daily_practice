@@ -170,6 +170,90 @@ class Employee {
         Map<String, Double> collect6 = employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary)));
         System.out.println(collect6);
+
+//Print all unique departments.
+       var dis_list =  employeeList.stream()
+                                    .map(e -> e.getDepartment())
+                                    .distinct()
+                                    .collect(Collectors.toList());
+
+       for(String depart : dis_list){
+       // System.out.println("department name : "+depart);
+       }
+
+
+       // count the number of male and females
+
+        var list = employeeList.stream()
+                    .collect(Collectors.groupingBy(Employee::getGender, Collectors.counting()));
+
+
+        //System.out.println("list is:"+list);
+
+
+        //List names of all employees joined after 2015.
+
+
+
+       var view =  employeeList
+                .stream()
+                .filter(e -> e.getYearOfJoining() > 2015)
+                .map(Employee::getName)
+                .collect(Collectors.toList());
+
+               // view.forEach(System.out::print);
+
+               //Get the names of all departments in sorted order.
+
+              var names =  employeeList
+                        .stream()
+                        .map(Employee::getDepartment)
+                        .distinct()
+                        .sorted()
+                        .collect(Collectors.toList());
+
+                        //names.forEach(System.out::println);
+
+
+
+        // Find employees whose salary > 30,000.
+
+
+       var namess =  employeeList
+                .stream()
+                .filter(e -> e.getSalary() > 30000)
+                .map(Employee::getName)
+                .collect(Collectors.toList());
+
+
+                namess.forEach(System.out::println);
+
+
+        // group all the employees by gender
+
+
+        var employeesByGender  =employeeList
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getGender));
+
+
+                System.out.println(employeesByGender);
+
+
+
+                
+
+               
+
+
+
+
+
+
+
     }
+
+    
+    
 
 }
